@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+w = np.logspace(-1, 2, 1000) 
+s = 1j * w
+H = 2 / (s + 3)
+plt.figure(figsize=(10, 5))
+plt.subplot(2, 1, 1)
+plt.semilogx(w, 20 * np.log10(abs(H)))
+plt.title('Magnitude Response')
+plt.xlabel('Frequency [rad/s]')
+plt.ylabel('|H(jω)| [dB]')
+plt.grid()
+plt.subplot(2, 1, 2)
+plt.semilogx(w, np.angle(H, deg=True))
+plt.title('Phase Response')
+plt.xlabel('Frequency [rad/s]')
+plt.ylabel('Phase [degrees]')
+plt.grid()
+plt.tight_layout()
+plt.show()
